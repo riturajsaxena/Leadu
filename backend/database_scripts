@@ -1,0 +1,57 @@
+-- PLANS
+CREATE TABLE plans (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ name TEXT,
+ daily_limit INT,
+ price INT
+);
+
+INSERT INTO plans (name, daily_limit, price)
+VALUES
+('Starter', 20, 499),
+('Basic', 40, 999),
+('Pro', 60, 1499);
+
+-- USERS
+CREATE TABLE users (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ email TEXT UNIQUE,
+ password_hash TEXT,
+ plan_id UUID REFERENCES plans(id)
+);
+
+-- CONTACTS
+CREATE TABLE contacts (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ user_id UUID,
+ phone TEXT,
+ name TEXT
+);
+
+-- CAMPAIGNS
+CREATE TABLE campaigns (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ user_id UUID,
+ name TEXT,
+ message TEXT
+);
+
+-- DAILY COUNTERS
+CREATE TABLE daily_counters (
+ user_id UUID,
+ date DATE,
+ count INT DEFAULT 0,
+ PRIMARY KEY (user_id, date)
+);
+
+-- SEND LOGS
+CREATE TABLE send_logs (
+ id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+ user_id UUID,
+ phone TEXT,
+ campaign_id UUID,
+ status TEXT,
+ created_at TIMESTAMP DEFAULT now()
+);
+
+select * from public.users

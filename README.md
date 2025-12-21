@@ -48,7 +48,7 @@ def db_check():
 - Returns {"db": "error", "detail": "...error message..."} if something fails.
 
 Now restart your server:
-uvicorn backend.app.main:app --reload
+uvicorn app.main:app --reload
 
 
  http://127.0.0.1:8000/db-check in your browser or Swagger UI to confirm DB connectivity.
@@ -58,3 +58,18 @@ uvicorn backend.app.main:app --reload
   "password": "securepassword123"
 }
 
+contact
+Ritu Raj Saxena
+9765569600
+5be806b3-a471-4e8d-bc08-f38768bc6e2d
+
+campaigns
+name
+messgae
+userid
+
+Send Logs
+9765569600
+d46da543-ba93-4428-bce2-30cc01fa09cb
+sent
+5be806b3-a471-4e8d-bc08-f38768bc6e2d

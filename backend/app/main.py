@@ -1,9 +1,18 @@
-# app/main.py
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.routes import users, contacts, campaigns, sends
 from app.database import conn   # <-- import your DB connection
 
 app = FastAPI(title="WhatsApp SaaS Platform")
+
+# ✅ Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or restrict to ["http://localhost:8000", "http://127.0.0.1:8000"]
+    allow_credentials=True,
+    allow_methods=["*"],  # allow GET, POST, OPTIONS, etc.
+    allow_headers=["*"],
+)
 
 # Routers
 app.include_router(users.router)

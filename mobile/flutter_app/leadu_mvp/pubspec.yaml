@@ -1,0 +1,27 @@
+name: leadu_mvp
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # ✅ Added dependencies for your MVP
+  http: ^1.2.0                # For API calls to your FastAPI backend
+  shared_preferences: ^2.2.2  # For saving JWT locally
+  url_launcher: ^6.2.5        # For opening WhatsApp safely
+  flutter_contacts: ^1.1.9+2  # Access device contacts for import
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
