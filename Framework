@@ -604,6 +604,18 @@ FastAPI endpoints to add
 Plain Texthttp isn’t fully supported. Syntax highlighting is based on Plain Text.POST /wa/send-template        # to, template_name, variables[]POST /wa/send-freeform        # to, textPOST /wa/webhook              # delivery/read + inbound messagesPOST /templates               # createPUT  /templates/{id}          # updatePOST /templates/{id}/submit   # draft -> submitted -> approved/rejectedGET  /windows/{contact_id}    # current 24h/72h stateGET  /analytics/summary       # KPIs for dashboardShow more lines
 Supabase tables to add
 
+POST /wa/send-template        # to, template_name, variables[]
+POST /wa/send-freeform        # to, text
+POST /wa/webhook              # delivery/read + inbound messages
+
+POST /templates               # create
+PUT  /templates/{id}          # update
+POST /templates/{id}/submit   # draft -> submitted -> approved/rejected
+
+GET  /windows/{contact_id}    # current 24h/72h state
+GET  /analytics/summary       # KPIs for dashboard
+
+
 templates(category, status, content)
 message_log(message_type, category, paid, meta_fee, markup, delivery_status, sent_at)
 conversation_window(window_type, opened_at, expires_at, source)
